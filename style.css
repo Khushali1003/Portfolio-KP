@@ -285,3 +285,14 @@ form .btn2{
     margin-top: 20px;
     cursor: pointer;
 }
+
+#message{
+    color:green ;
+    margin-top: -10px;
+    display:block ;
+}
+@media only screen and (max-width:700px){
+    header{
+        .left-part: url(Portfolio\background.png.jpg);
+    }
+}

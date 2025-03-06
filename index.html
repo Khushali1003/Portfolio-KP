@@ -59,12 +59,21 @@
                 </div>
                 <div class="about-col-2">
                     <h1>About Me</h1>
-                    <p>I am a 3rd-year B.Tech Computer Science student with a strong foundation in both programming and
-                        front-end development.
-                        My skills encompass languages such as C, C++, Python, and a thorough understanding of
-                        Object-Oriented Programming (OOP) concepts.
-                        Additionally, I am proficient in front-end technologies including HTML, CSS, JavaScript,
-                        Bootstrap, and React.</p>
+                    <p>I'm a passionate Front-End Developer with a strong foundation in HTML, CSS, JavaScript, and
+                        modern frameworks like React and Bootstrap. Currently, I'm pursuing my B.Tech in Computer
+                        Science, and I love turning creative ideas into responsive and user-friendly web experiences.
+                        <br>
+                        <br>
+                        Beyond coding, I thrive on problem-solving, adaptability, and continuous learning. Whether it's
+                        designing sleek UI components, optimizing performance, or ensuring seamless user interactions, I
+                        enjoy every step of the development process.
+                        <br>
+                        <br>
+                        With hands-on experience in web development projects, internships, and freelancing, I'm always
+                        eager to take on new challenges and grow as a developer. My goal is to build interactive,
+                        visually appealing, and efficient web applications that make a real impact.
+
+                    </p>
                     <section class="section-second">
                         <div>
                             <h2 class="skill-header">Soft Skills</h2>
@@ -80,6 +89,10 @@
                                 <li>C</li>
                                 <li>C++</li>
                                 <li>Python</li>
+                                <li>EDA</li>
+                                <li>Pandas</li>
+                                <li>Numpy</li>
+                                <li>Matplotlib</li>
                                 <li>HTML</li>
                                 <li>CSS</li>
                                 <li>JavaScript</li>
@@ -103,31 +116,33 @@
             <h1 class="sub-title">My Work</h1>
             <div class="work-list">
                 <div class="work">
-                    <img src="rock-paper-scissor.png" height="400px" width="200px">
+                    <img src="portfolio.png" height="400px" width="200px">
                     <div class="layer">
-                        <h3>Matrimony </h3>
-                        <p>Built using Html,css and bootstrap</p>
+                        <h3>Portfolio </h3>
+                        <p>Built using Html,css,js and bootstrap</p>
                         <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="work">
                     <img src="tic-tac-toe.png" height="400px" width="200px">
                     <div class="layer">
-                        <h3>Matrimony </h3>
-                        <p>Built using Html,css and bootstrap</p>
-                        <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+                        <h3>Tic-Tac-Toe </h3>
+                        <p>Built using Html,css and JavaScript</p>
+                        <a href=""><i class="fa fa-external-link" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="work">
                     <img src="developer.png" height="400px" width="200px">
                     <div class="layer">
-                        <h3>Matrimony </h3>
-                        <p>Built using Html,css and bootstrap</p>
-                        <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+                        <h3>Calculator </h3>
+                        <p>Built using Html, CSS and JavaScript</p>
+                        <a href="https://github.com/Khushali1003/calculator"><i class="fa fa-external-link" aria-hidden="true"></i></a>
                     </div>
+                   
                 </div>
             </div>
             <a href="#" class="btn">See more</a>
+            
         </div>
     </div>
 
@@ -150,13 +165,14 @@
                     </div>
                 </div>
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="email" name="Email" placeholder="Your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your message"></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
 
                     </form>
+                    <span id="message"></span>
                 </div>
             </div>
         </div>
@@ -169,6 +185,25 @@
             typeSpeed: 50,
             loop: true,
         });
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzrYCV7en7bAlnSAzjHFNZSlEleKBDE7GgHkAwRBcbRsfr4Qo5vwIaQYMDc71XaSdRa/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const message = document.getElementById("message")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    message.innerHTML = "Message Sent Succesfully"
+                    setTimeout(function () {
+                        message.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
     </script>
 </body>
 
